@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>YouTube video finder</title>
+    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <h1>YouTube Movie and Show Reviews</h1>
+    
+        <form id="js-form">
+            <label for="search-term">Get me a review for</label>
+            <input type="text" placeholder="Star Wars, The Office..." id="js-search-term" required>
+            <br>
+            <label for="max-results">Result amount</label>
+            <input type="number" name="max-results" id="js-max-results" value="10">
+
+            <button type="submit" value="Go!">Go!</button>
+        </form>
+          <button id='random-button'>Find Random Review!</button>
+        <p id="js-error-message" class="error-message"></p>
+        <section id="results" class="hidden">
+          <h2>Search results</h2>
+          <ul id="results-list">
+          </ul>
+        </section>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+</body>
+</html>
