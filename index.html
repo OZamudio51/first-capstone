@@ -14,17 +14,17 @@
     
         <form id="js-form">
             <label for="search-term">Get me a review for</label>
-            <input type="text" placeholder="Star Wars, The Office..." id="js-search-term" required>
+            <input type="text" placeholder="Star Wars, The Office..." autocomplete="off" id="js-search-term" required>
             <br>
             <label for="max-results">Result amount</label>
             <input type="number" name="max-results" id="js-max-results" value="10">
 
             <button type="submit" value="Go!">Go!</button>
         </form>
-          <button id='random-button'>Find Random Review!</button>
+          <button id='random-button'>Find Random Reviews!</button>
         <p id="js-error-message" class="error-message"></p>
         <section id="results" class="hidden">
-          <h2>Search results</h2>
+          <h2 id= 'search-results' class="hidden">Search results</h2>
           <ul id="results-list">
           </ul>
         </section>

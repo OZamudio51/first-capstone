@@ -3,6 +3,8 @@
 const apiKey = 'AIzaSyA_DZWWeB3wGRcUARK-YveczXcU1zq6dbU'; 
 const searchURL = 'https://www.googleapis.com/youtube/v3/search';
 
+const randomMovies = ['action movie', 'horror movie', 'classic movie', 'comedy movie', 'drama movie', 'suspense thriller movie', 'romance movie'];
+
 
 function formatQueryParams(params) {
   const queryItems = Object.keys(params)
@@ -13,6 +15,7 @@ function formatQueryParams(params) {
 function displayResults(responseJson) {
   console.log(responseJson);
   $('#results-list').empty();
+  $('#search-results').show();
   for (let i = 0; i < responseJson.items.length; i++){
     console.log(responseJson.items[i].snippet.description);
     $('#results-list').append(
@@ -27,7 +30,7 @@ function displayResults(responseJson) {
 function displayRandomResults(responseJson) {
   console.log(responseJson);
   $('#results-list').empty();
-  for (let i = 0; i < responseJson.items.length; i++){
+  $('#search-results').show();
   let theArray = responseJson.items;
   var randomItem = theArray[Math.floor(Math.random() * theArray.length)]
     $('#results-list').append(
@@ -36,7 +39,7 @@ function displayRandomResults(responseJson) {
       <iframe width="560" height="315" src='https://www.youtube.com/embed/${randomItem.id.videoId}' frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </li>`
     )}; 
-} 
+
   $('#results').removeClass('hidden');
 
 
@@ -61,12 +64,17 @@ function getYouTubeVideos(query, maxResults=10, isRandom) {
       throw new Error(response.statusText);
     })
     .then(responseJson => {
-      if (isRandom){
+      if (responseJson.items.length == 0){
+        $('#results-list').empty();
+        $('#results-list').append(
+        `<li><h3>Sorry, no results found.</h3>
+          </li>`)
+      } else if (isRandom){
         displayRandomResults(responseJson);
       } else {
         displayResults(responseJson)
-      }
-    } )
+      } 
+    })
     .catch(err => {
       $('#js-error-message').text(`Something went wrong: ${err.message}`);
     });
@@ -75,15 +83,17 @@ function getYouTubeVideos(query, maxResults=10, isRandom) {
 function watchForm() {
   $('form').submit(event => {
     event.preventDefault();
-    const searchTerm = $('#js-search-term').val();
+    let searchTerm = $('#js-search-term').val();
+    searchTerm = searchTerm + ' review'
     const maxResults = $('#js-max-results').val();
     getYouTubeVideos(searchTerm, maxResults, false);
   });
   $('#random-button').on('click', event => {
     event.preventDefault();
-    const searchTerm = $('#js-search-term').val();
+    let searchTerm = randomMovies[Math.floor(Math.random() * randomMovies.length)]
+    searchTerm = searchTerm + ' review'
     console.log(searchTerm);
-    getYouTubeVideos(searchTerm, 20, true);
+    getYouTubeVideos(searchTerm, 1, true);
   })
 }
 
