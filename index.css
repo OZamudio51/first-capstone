@@ -1,12 +1,57 @@
 * {
     box-sizing: border-box;
+    font-family: 'Raleway','Open Sans', Helvetica, sans-serif;
   }
   
   body {
-    font-family: 'Roboto', sans-serif;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url('https://www.elsetge.cat/myimg/f/48-489497_wallpaper-city-street-fog-movement-architecture-city-street.jpg');
+    color: white;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .header, .search-bars, .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
-  button, input[type="text"] {
+  
+
+  button {
+    border: none;
+    background: #404040;
+    color: #ffffff !important;
+    font-weight: 100;
+    padding: 8px;
+    text-transform: uppercase;
+    border-radius: 6px;
+    display: inline-block;
+    transition: all 0.3s ease 0s;
+    margin: 4px;
+    margin-top: 20px;
+     }
+
+
+
+   button:hover {
+    color: #404040 !important;
+    font-weight: 700 !important;
+    letter-spacing: 3px;
+    background: none;
+    box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.3s ease 0s;
+   }
+
+
+
+  input[type="text"], .search-amount {
+    margin: 5px;
+    border-radius: 8px;
+    border: none;
     padding: 5px;
   }
   
@@ -16,7 +61,7 @@
   
   .container {
     max-width: 600px;
-    margin: 0 auto;
+    margin: auto;
   }
   
   .error-message {
@@ -29,4 +74,25 @@
 
   li {
       list-style: none;
+      display: inline-block;
+      padding-bottom: 75px;
+      background-color: black;
+      background:rgba(0, 0, 0, 0.7);
   }
+
+  #results {
+    height: 75vh;
+    overflow: scroll;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+form {
+  padding: 30px;
+}
+
+
+.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }

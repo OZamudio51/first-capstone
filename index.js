@@ -21,7 +21,7 @@ function displayResults(responseJson) {
     $('#results-list').append(
       `<li><h3>${responseJson.items[i].snippet.title}</h3>
       <p>${responseJson.items[i].snippet.description}</p>
-      <iframe width="560" height="315" src='https://www.youtube.com/embed/${responseJson.items[i].id.videoId}' frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <div class='embed-container'><iframe width="100%" height="315" src='https://www.youtube.com/embed/${responseJson.items[i].id.videoId}' frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
       </li>`
     )};  
   $('#results').removeClass('hidden');
@@ -36,7 +36,7 @@ function displayRandomResults(responseJson) {
     $('#results-list').append(
       `<li><h3>${randomItem.snippet.title}</h3>
       <p>${randomItem.snippet.description}</p>
-      <iframe width="560" height="315" src='https://www.youtube.com/embed/${randomItem.id.videoId}' frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <div class='embed-container'><iframe width="100%" height="315" src='https://www.youtube.com/embed/${randomItem.id.videoId}' frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
       </li>`
     )}; 
 
@@ -67,8 +67,7 @@ function getYouTubeVideos(query, maxResults=10, isRandom) {
       if (responseJson.items.length == 0){
         $('#results-list').empty();
         $('#results-list').append(
-        `<li><h3>Sorry, no results found.</h3>
-          </li>`)
+        `<h3>Sorry, no results found.</h3>`)
       } else if (isRandom){
         displayRandomResults(responseJson);
       } else {
