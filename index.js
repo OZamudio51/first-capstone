@@ -17,8 +17,6 @@ function displayResults(responseJson) {
   console.log('here');
   $('#results-list').empty();
   $('#search-results').show();
-//   $('.search-bars').hide();
-// $('.header').hide();
   for (let i = 0; i < responseJson.items.length; i++){
     
     console.log(responseJson.items[i].snippet.description);
@@ -89,7 +87,6 @@ function watchForm() {
     let searchTerm = $('#js-search-term').val();
     searchTerm = searchTerm + ' review'
     const maxResults = $('#js-max-results').val();
-    // $('.search-bars').slideUp();
     $('.header').slideUp();
     getYouTubeVideos(searchTerm, maxResults, false);
   });
