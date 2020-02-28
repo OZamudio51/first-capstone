@@ -1,6 +1,6 @@
 'use strict';
 
-const apiKey = 'AIzaSyA_DZWWeB3wGRcUARK-YveczXcU1zq6dbU'; 
+const apiKey = 'AIzaSyCpty5MmzZBD11P6n2SRR6xzBgIVZd6nKQ'; 
 const searchURL = 'https://www.googleapis.com/youtube/v3/search';
 
 const randomMovies = ['action movie', 'horror movie', 'classic movie', 'comedy movie', 'drama movie', 'suspense thriller movie', 'romance movie'];
@@ -14,9 +14,13 @@ function formatQueryParams(params) {
 
 function displayResults(responseJson) {
   console.log(responseJson);
+  console.log('here');
   $('#results-list').empty();
   $('#search-results').show();
+//   $('.search-bars').hide();
+// $('.header').hide();
   for (let i = 0; i < responseJson.items.length; i++){
+    
     console.log(responseJson.items[i].snippet.description);
     $('#results-list').append(
       `<li><h3>${responseJson.items[i].snippet.title}</h3>
@@ -85,6 +89,8 @@ function watchForm() {
     let searchTerm = $('#js-search-term').val();
     searchTerm = searchTerm + ' review'
     const maxResults = $('#js-max-results').val();
+    // $('.search-bars').slideUp();
+    $('.header').slideUp();
     getYouTubeVideos(searchTerm, maxResults, false);
   });
   $('#random-button').on('click', event => {
