@@ -10,8 +10,9 @@ An application that finds Youtube reviews for movies and shows, with a feature t
 
           
 
+
 - Technology used:
   - HTML
   - CSS
-  -JavaScript
-  -jQuery
+  - JavaScript
+  - jQuery
