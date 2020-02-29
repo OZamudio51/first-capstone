@@ -21,10 +21,12 @@ function displayResults(responseJson) {
     
     console.log(responseJson.items[i].snippet.description);
     $('#results-list').append(
-      `<li><h3>${responseJson.items[i].snippet.title}</h3>
+      `<section>
+      <li><h3>${responseJson.items[i].snippet.title}</h3>
       <p>${responseJson.items[i].snippet.description}</p>
       <div class='embed-container'><iframe width="100%" height="315" src='https://www.youtube.com/embed/${responseJson.items[i].id.videoId}' frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-      </li>`
+      </li>
+      </section>`
     )};  
   $('#results').removeClass('hidden');
 };
@@ -77,6 +79,7 @@ function getYouTubeVideos(query, maxResults=10, isRandom) {
       } 
     })
     .catch(err => {
+      $('.header').slideUp();
       $('#js-error-message').text(`Something went wrong: ${err.message}`);
     });
 }

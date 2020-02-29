@@ -8,42 +8,37 @@
     <meta name="description" content="A YouTube review search engine for movies and shows">
     <link rel="shortcut icon" href="#">
     <link rel="stylesheet" href="index.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
 </head>
 <body>
+  <main>
     <div class="container">
       <div class="header">
         <h1>YouTube Movie and Show Reviews</h1>
       </div>
       <div class="search-bars">
         <form id="js-form">
-            <label for="search-term">Get a review for</label>
-            <input type="text" placeholder="Star Wars, The Office..." autocomplete="off" id="js-search-term" required>
+            <label for="js-search-term">Get reviews for</label>
+            <input id="js-search-term" type="text" placeholder="Star Wars, The Office..." autocomplete="off"  required>
             <br>
-            <label for="max-results">Result amount</label>
-            <input class= "search-amount" type="number" name="max-results" id="js-max-results" value="10">
+            <label for="js-max-results" class="max-results">Result amount</label>
+            <input class="search-amount" type="number" name="max-results" id="js-max-results" value="10">
           <br/>
             <button type="submit" value="Go!">Go!</button>
             <button id='random-button'>Get Random Review</button>
         </form>
       </div>
-          <div>
+            <section>
         <p id="js-error-message" class="error-message"></p>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
+            </section>
         <section id="results" class="hidden">
           <h2 id= 'search-results' class="hidden">Search results</h2>
           <ul id="results-list">
           </ul>
         </section>
-        </div>
-        <section>
-            <p id="js-error-message" class="error-message"></p>
-        </section>
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="index.js"></script>
+  </main>
 </body>
 </html>
