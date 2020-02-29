@@ -13,13 +13,9 @@ function formatQueryParams(params) {
 }
 
 function displayResults(responseJson) {
-  console.log(responseJson);
-  console.log('here');
   $('#results-list').empty();
   $('#search-results').show();
   for (let i = 0; i < responseJson.items.length; i++){
-    
-    console.log(responseJson.items[i].snippet.description);
     $('#results-list').append(
       `<section>
       <li><h3>${responseJson.items[i].snippet.title}</h3>
@@ -32,7 +28,6 @@ function displayResults(responseJson) {
 };
 
 function displayRandomResults(responseJson) {
-  console.log(responseJson);
   $('#results-list').empty();
   $('#search-results').show();
   let theArray = responseJson.items;
@@ -58,7 +53,6 @@ function getYouTubeVideos(query, maxResults=10, isRandom) {
   const queryString = formatQueryParams(params)
   const url = searchURL + '?' + queryString;
 
-  console.log(url);
 
   fetch(url)
     .then(response => {
@@ -97,7 +91,6 @@ function watchForm() {
     event.preventDefault();
     let searchTerm = randomMovies[Math.floor(Math.random() * randomMovies.length)]
     searchTerm = searchTerm + ' review'
-    console.log(searchTerm);
     getYouTubeVideos(searchTerm, 1, true);
   })
 }
