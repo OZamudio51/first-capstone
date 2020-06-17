@@ -1,6 +1,6 @@
 'use strict';
 
-const apiKey = 'AIzaSyA4L0Qt8CQ8AnIwp9Rw5NIXd24G6zGIpM0'; 
+const apiKey = 'AIzaSyAZpukVtuY0AH5Btpp7bT_7A4UnmTYA6D0'; 
 const searchURL = 'https://www.googleapis.com/youtube/v3/search';
 
 const randomMovies = ['action movie', 'horror movie', 'classic movie', 'comedy movie', 'drama movie', 'suspense thriller movie', 'romance movie'];
