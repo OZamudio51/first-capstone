@@ -6,7 +6,7 @@
 body {
   background-size: cover;
   background-repeat: no-repeat;
-  background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url('https://www.elsetge.cat/myimg/f/48-489497_wallpaper-city-street-fog-movement-architecture-city-street.jpg');
+  background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url(movie-theater-background.jpg);
   color: white;
   height: 100vh;
   overflow: hidden;
